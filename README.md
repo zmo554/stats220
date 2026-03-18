@@ -4,14 +4,14 @@
 
 **Little about me:**
 
-* I'm taking a degree in Bachelor of Scie nce, majoring in:
-1. *Psychology*
-2. *Statistics*😆!!!
+1. Own a Budgie and Rabbit
+2. stage 3 student
 
 * I am intersted in learning about ways I can make **readable documents**
 
-* I'm taking **Stats 220** is because it is a fun course for learning R code, also because the lectures are ***Cat themed!!!***
-![](https://media1.tenor.com/m/x1hCpiu-nUAAAAAC/duongcam1621-cat.gif)
+* I'm taking **Stats 220** is because it is a fun course for learning R code, also because the lectureers seems soooo **Cool**!!!
+
+![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDMzMGx1eGhiZjV0eTdhdDFmNDN5Z2FubXphOXl1a2dlbzV0aG14YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fUQ4rhUZJYiQsas6WD/giphy.gif)
 
 
-***[A link to a meme that captures my how I currently feel about my university studies](https://nz.pinterest.com/pin/20-funny-university-memes-for-students--225109681364782675/)***
+***[A link to a meme that captures my how I currently feel about my university studies](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzMzYnN3d2Vkb2wwcGp3M25lYWZscTF2anZmaHF4ZGZrZGJqZXJ2aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/okfvUCpgArv3y/giphy.gif)***
