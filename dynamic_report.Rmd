@@ -1,0 +1,150 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+
+```
+
+```{css}
+body {
+  font-family: "Monaco", Monospace;
+  font-weight: normal;
+  font-size: 15pt;
+  
+}
+
+h2 {
+  font-weight: bold;
+  font-size : 30pt;
+  
+}
+
+h3 {
+  font-weight: bold;
+  font-size : 20pt;
+  
+}
+```
+
+## What does my physical actity(PA) look like across the weeks of the semester?
+
+### **Import data:**.
+
+```{r}
+library(tidyverse)
+library(magick)
+
+# Loading in data from csv file
+
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vS1YsovPMnpZ47L0OtQhOp3xESzlsof0bj30adQmIMxz9VFWe3sCBqmUJuJX_-cdh_vTJJUB05hKphf/pub?output=csv")
+
+
+#renaming variables for easier access and understanding
+
+latest_data<- logged_data %>% 
+  rename(if_PA = 2,
+         Day = 3,
+         Time = 4,
+         Type = 5,
+         Duration = 6,
+         Intensity = 7,
+         Location = 8,
+         Week = 9)
+
+# Exploring data
+
+#identifying summary values:
+
+# Mean duration for each week
+
+weekD1 <- sum(latest_data$Duration[latest_data$Week == "Week 1"], 
+               na.rm = TRUE)
+
+weekD2 <- sum(latest_data$Duration[latest_data$Week == "Week 2"], 
+               na.rm = TRUE)
+
+weekD3 <- sum(latest_data$Duration[latest_data$Week == "Week 3"], 
+               na.rm = TRUE)
+
+weekD4 <- sum(latest_data$Duration[latest_data$Week == "Week 4"], 
+               na.rm = TRUE)
+
+weekD5 <- sum(latest_data$Duration[latest_data$Week == "Week 5"], 
+               na.rm = TRUE)
+
+# Max duration for Strengths exercise
+
+max_strengths <- max(latest_data$Duration[latest_data$Type == "Strengths exercise (e.g gym, weights)"], na.rm = TRUE)
+
+
+```
+
+### **Changes in PA over the weeks**
+
+```{r}
+ggplot(data = latest_data) +
+  geom_bar(aes(x = Week, 
+               fill = if_PA)) +
+  labs(title = "Days of PA",
+       x = "Weeks",
+       y = "Days")
+```
+
+From the bar chart, we can see that the Blue section indicates days in the week I engaged in PA. Red section indicates amount days in the week I did not enegage in PA. As we can see throughout the weeks of there is very clear gradual drop in blue area from 5/7 days did PA to 3/7 days did PA in week 4(as week5 doesn't have complete data). Indicating as the semester goes on workload kicks in, days I engage in PA drops. 
+
+
+### **Changes in amount of time engaging in PA over the weeks**
+
+```{r}
+# Create dataset for mean PA duration across the week
+Duration_sum <- data.frame(
+    week = c("Week 1", "Week 2", "Week 3", "Week 4", "Week 5"),
+      total_duaration = c(weekD1, weekD2, weekD3, weekD4, weekD5)
+        )
+
+  # bar chart
+ggplot(data = Duration_sum) +
+  geom_bar(aes(y = week, fill = total_duaration)) +
+  labs(title = "Total duration of PA over the weeks",
+       y = "Weeks",
+       x = "Total duration of the week")
+```
+
+To further look into if I actually do less PA as semester goes on, I dig deeper and look into the total duration of PA in a week in minutes. Because I could do longer sessions of PA and less days which may not nessasarily mean i'm doing less PA. 
+But looking from the Bar chart, we can see that the lighter the blue, the longer the duration. We can see that as the semester goes on, the Bar gets darker, indicating dropping in total duration of enegagement in physical activity, i'm doing less exercise as workload kicks in.
+
+
+### **which type of physical actitivy do I enegage in the most?**
+
+```{r}
+  # Type of PA
+#filter out "NA" responses which are days where no PA was done
+
+Real_data <- latest_data %>%
+  filter(if_PA == "Yes")
+
+ggplot(data = Real_data) +
+  geom_bar(aes(x = Type, fill = Type)) +
+  labs(title = "Type of PA",
+       y = "Frequency of types of PA",
+       x = "Type of PA")
+
+```
+Also wanted to investigate which type of PA I did the most. as we can see, purple bar(strengths exercises) was done most frequent, followed up by pink(cardio related activities).
+
+### **Summary value of physical activity over the week**
+
+```{r}
+paste("The total duration of enegaging in PA has decreased for Week 1 to week 5, highest total PA time in week 1 being", weekD1, "minutes.",
+      "with the lowest total PA time so far in Week 5 being", weekD5, "minutes.",
+      collapse = "")
+
+paste("We can see from the graph above, that strengths exercises are the most commonly engaged in physical activity, with the max duration spent on doing this exercise being", max_strengths, "minutes.",
+      collapse = "")
+
+```
+
+
