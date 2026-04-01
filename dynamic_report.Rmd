@@ -133,6 +133,7 @@ ggplot(data = Real_data) +
        x = "Type of PA")
 
 ```
+
 Also wanted to investigate which type of PA I did the most. as we can see, purple bar(strengths exercises) was done most frequent, followed up by pink(cardio related activities).
 
 ### **Summary value of physical activity over the week**
