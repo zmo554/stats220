@@ -1,0 +1,98 @@
+---
+title: My Physical Activity Pattern Throughout The Semester
+output: html_document
+---
+
+```{=html}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+```
+
+```{js}
+$(function() {
+  $(".level2").css('visibility', 'hidden');
+  $(".level2").first().css('visibility', 'visible');
+  $(".container-fluid").height($(".container-fluid").height() + 300);
+  $(window).on('scroll', function() {
+    $('h2').each(function() {
+      var h2Top = $(this).offset().top - $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (h2Top >= 0 && h2Top <= windowHeight / 2) {
+        $(this).parent('div').css('visibility', 'visible');
+      } else if (h2Top > windowHeight / 2) {
+        $(this).parent('div').css('visibility', 'hidden');
+      }
+    });
+  });
+})
+```
+
+```{css, echo=FALSE}
+.figcaption {display: none}
+
+body {
+  font-family: "Monaco", Monospace;
+  font-weight: normal;
+  font-size: 15pt;
+  background-color: #f7f7f7
+  
+}
+
+h1 {
+  color: #d6604d;
+  padding: 25px;
+  background-color: #92c5de;
+  font-weight: bold;
+  font-size : 30pt;
+  
+}
+
+h2 {
+  font-weight: bold;
+  font-size : 20pt;
+  background-color: #fddbc7
+  
+}
+
+h3 {
+  font-weight: bold;
+  font-size : 20pt;
+  background-color: #FEE6D8;
+  
+}
+
+```
+
+## What's going on with my engagement in physical activity over the semeter?
+
+![](my_plot1.png)
+***Line graph showing changes intotal physical activity engagement across 8 weeks of the semester***
+
+As we can see in the beginning of the semester, I was highly motivated to stay active, similar to setting a to  "new years resolution" but for a new semester. High PA enegagement for the first 2 weeks, working hard to try set routine and habit. 
+
+But unfortunately, as workload kicked in, we can see a sharp drop in week 3 and even lower from there as we approach towards the mid-sems(week 5). coming back from the mid-sem break*week6), engagement increases again after the test but not fully return to the level of engagement at the beginning of the semester. 
+
+Showing how motivation and worakload can influence my physical activity throughout the semester. 
+
+## where my physical activity take place?
+
+![](my_plot2.png)
+***Dodged and facet_wrapped bar chart comparing the 4 different types of physical activity and it activity was taken at or outside of uni***
+
+Different physical activity seems to happen at different places. We can see that all of the cardio sessions are done outside of uni, and strength sessions are done at uni, most of the low-impact exercises done outside of uni, sports sessions half and half.
+
+
+## Track for any patterns to also help exaplin the graph above...
+
+![](my_plot3.png)
+
+***Dodged bar chart showing which PA type are done on which days***
+
+We can see most of the dark blue(strength training) happens mostly on tuesday and sometimes Mon/Wed/Thu. Which are days I go into uni, which also compliment results shown from the bar chart above how all strength training are done at uni. 
+
+Most of the low-impact exercises are done on saturday or fridays. typically after strengths session/sports Sports mostly only happen on Thursdays and Fridays. Which are mostly days I'm not at uni hence why mostly done outside of uni. 
+
+Most of the Cardio sessions are on Sundays or monday. These aboth show eventhough Engagement dropped, I wass able to build a routine to engage in physical activity when I can. 
